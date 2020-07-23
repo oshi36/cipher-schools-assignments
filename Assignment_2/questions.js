@@ -189,17 +189,28 @@ return uniqueChars;
 // Create a function that takes a value as an argument and returns the type of this value. You should get the real type of a value (JavaScript typeof doesn't return the real object type of values and you need to fix that).
 
 function realType(x) {
-    if(typeof(x) === "object") {
-        if(x == null)
-            return "null";
-        if(x.constructor === Array)
-            return "array";
+
+    switch (typeof (x)) {
+        case 'object':
+            if (x instanceof Array)
+                return 'Array';
+            if (x instanceof Date)
+                return 'Date';
+            if (x instanceof RegExp)
+                return 'regexp';
+            if (x instanceof String)
+                return 'String';
+            if (x instanceof Number)
+                return 'Number';
+            else if (x === null)
+                return "null";
+            return 'object';
+           
+        default:
+            return typeof (x);
     }
-    return typeof(x);
 }
-
 console.log(realType([]));
-
 
 
 // Numbers in Strings
@@ -220,7 +231,8 @@ function numInStr(s) {
     return s1;
 }
 
-console.log(numInStr (["abc10",  "abc@","def"]));
+console.log(numInStr (["this is a test", "test1"]));
+
 
 
 
