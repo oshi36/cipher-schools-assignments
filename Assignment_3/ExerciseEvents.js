@@ -3,6 +3,9 @@
   ------------
   Add a label to each of the input fields: username, password, confirm password
 */
+document.getElementById('label1').innerHTML = 'Username';
+document.getElementById('label2').innerHTML = 'Password';
+document.getElementById('label3').innerHTML = 'Confirm Password';
 
 
 /*
@@ -10,8 +13,10 @@
   -----------
   Add a required validation to each input that shows an error message next to the entry if it does not have any text entered.
 */
-
-
+let require = document.getElementsByTagName("input");
+for (let i = 0; i < 3; i++) {
+  require[i].setAttribute("required", "");
+}
 
 /*
   Exercise 03
@@ -66,6 +71,3 @@ function displayMsg() {
   alert("You are successfully registered!!!");
   }
 }
-
-
-
